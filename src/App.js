@@ -1,40 +1,73 @@
-import React from 'react';
+import { useEffect, useState } from "react";
+import { ColorModeSwitcher } from "./ColorModeSwitcher";
+import { ChakraProvider, Box, VStack, Grid } from "@chakra-ui/react";
 import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+// import ErrorPage from "pages/ErrorPage";
+import customTheme from "utils/customTheme";
+
+import Navbar from "components/Navbar";
+import Home from "pages/Home";
+import ErrorPage from "pages/ErrorPage"
+import SignIn from "pages/SignIn"
+
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
+    <ChakraProvider theme={customTheme}>
+      <Router>
+        <div className="top-bar">
+          <Navbar />
+
+          <ColorModeSwitcher justifySelf="flex-end" className="colorMode-button" />
+        </div>
+        <Box textAlign="center" fontSize="xl">
+          <Grid minH="100vh" p={3}>
+            <VStack spacing={8}>
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                {/* <Route exact path="/dashboard">
+                  {token ? <Dashboard /> : <Redirect to="/signin" />}
+                </Route>
+                <Route exact path="/calculator">
+                  {token ? <Calculator /> : <Redirect to="/signin" />}
+                </Route>
+                <Route exact path="/quote">
+                  {token ? <Quote /> : <Redirect to="/signin" />}
+                </Route>
+                <Route exact path="/stocks/:symbol">
+                  {token ? <Stock /> : <Redirect to="/signin" />}
+                </Route>
+                <Route path="/signin" exact>
+                  {token ? <Redirect to="/dashboard" /> : <SawoLogin />}
+                </Route>
+                <Route path="/about" exact>
+                  <About />
+                </Route>
+                <Route path="/leaderboard" exact>
+                  <Leaderboard />
+                </Route> */}
+                <Route path="/404" exact>
+                  <ErrorPage />
+                </Route>
+                <Route path="/signin" exact>
+                  <SignIn />
+                </Route>
+                {/* <Route path="/">
+                  <Redirect to="404" />
+                </Route> */}
+              </Switch>
+            </VStack>
+          </Grid>
+        </Box>
+        {/* <Footer /> */}
+      </Router>
     </ChakraProvider>
   );
 }
