@@ -14,6 +14,7 @@ import Navbar from "components/Navbar";
 import Home from "pages/Home";
 import ErrorPage from "pages/ErrorPage"
 import SignIn from "pages/SignIn"
+import Restaurants from "pages/Restaurants"
 
 
 function App() {
@@ -58,6 +59,9 @@ function App() {
                 </Route>
                 <Route path="/signin" exact>
                   <SignIn />
+                </Route>
+                <Route path="/restaurants" exact>
+                  <Restaurants />
                 </Route>
                 {/* <Route path="/">
                   <Redirect to="404" />
