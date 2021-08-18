@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Box, Flex, Text, Button, Stack } from "@chakra-ui/react";
+import { Link, Box, Flex, Text, Stack } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 
 const NavBar = props => {

@@ -7,13 +7,35 @@ import {
     chakra,
     Tooltip,
     WrapItem,
+    useToast
 } from '@chakra-ui/react';
 import { FiShoppingCart } from 'react-icons/fi';
 
-function DishCard({ rName, dName, dPrice, dImageURL }) {
+function DishCard({ rName, dName, dPrice, dImageURL, setCart }) {
+
+    const toast = useToast()
+    const addToCart = () => {
+        const dish = {
+            rName,
+            dName,
+            dPrice,
+            dImageURL           
+        }
+        console.log('We are in addToCart()');
+        setCart((prevCart) => [...prevCart, dish]);
+        toast({
+            title: "Added to Cart",
+            description: "You can view your orders",
+            variant: "left-accent",
+            status: "success",
+            duration: 2000,
+            isClosable: true,
+        })
+    };
+
+
     return (
         <WrapItem>
-
         <Flex p={50} w="full" alignItems="center" justifyContent="center" maxW="400px">
             <Box
                 bg={useColorModeValue('white', 'primary.900')}
@@ -47,7 +69,7 @@ function DishCard({ rName, dName, dPrice, dImageURL }) {
                             placement={'top'}
                             color={'gray.800'}
                             fontSize={'1.2em'}>
-                            <chakra.a href={'#'} display={'flex'}>
+                                <chakra.a onClick={() => addToCart()} display={'flex'}>
                                 <Icon as={FiShoppingCart} h={7} w={7} alignSelf={'center'} />
                             </chakra.a>
                         </Tooltip>

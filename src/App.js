@@ -15,9 +15,18 @@ import Home from "pages/Home";
 import ErrorPage from "pages/ErrorPage"
 import SignIn from "pages/SignIn"
 import Restaurants from "pages/Restaurants"
+import Orders from "pages/Orders"
 
 
 function App() {
+  const [cart, setCart] = useState([]);
+  // const onAdd = (dish) => {
+  //   setCartItems([...cartItems, dish]);
+  // }
+  // const onRemove = (dish) => {
+  //   setCartItems([])
+  // }
+  
   return (
     <ChakraProvider theme={customTheme}>
       <Router>
@@ -35,37 +44,27 @@ function App() {
                 </Route>
                 {/* <Route exact path="/dashboard">
                   {token ? <Dashboard /> : <Redirect to="/signin" />}
-                </Route>
-                <Route exact path="/calculator">
-                  {token ? <Calculator /> : <Redirect to="/signin" />}
-                </Route>
-                <Route exact path="/quote">
-                  {token ? <Quote /> : <Redirect to="/signin" />}
-                </Route>
-                <Route exact path="/stocks/:symbol">
-                  {token ? <Stock /> : <Redirect to="/signin" />}
-                </Route>
+                </Route
+
                 <Route path="/signin" exact>
                   {token ? <Redirect to="/dashboard" /> : <SawoLogin />}
                 </Route>
-                <Route path="/about" exact>
-                  <About />
-                </Route>
-                <Route path="/leaderboard" exact>
-                  <Leaderboard />
-                </Route> */}
+ */}
                 <Route path="/404" exact>
                   <ErrorPage />
                 </Route>
                 <Route path="/signin" exact>
                   <SignIn />
                 </Route>
-                <Route path="/restaurants" exact>
-                  <Restaurants />
+                <Route path="/restaurants" exact >
+                  <Restaurants setCart={setCart}/>
                 </Route>
-                {/* <Route path="/">
+                <Route path="/orders" exact >
+                  <Orders cart={cart}/>
+                </Route>
+                <Route path="/">
                   <Redirect to="404" />
-                </Route> */}
+                </Route>
               </Switch>
             </VStack>
           </Grid>
