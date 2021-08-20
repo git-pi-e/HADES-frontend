@@ -1,4 +1,4 @@
-import {  useState, useEffect, useDispatch } from "react";
+import { useState } from "react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { ChakraProvider, Box, VStack, Grid } from "@chakra-ui/react";
 import {
@@ -20,30 +20,16 @@ import Orders from "pages/Orders";
 
 
 function App() {
-  // let initCart = [];
-  // if (JSON.parse(localStorage.getItem("cart")).length) {
-  //   initCart = JSON.parse(localStorage.getItem("cart"));
-  // }
-  const [cart, setCart] = useState([]);
-  localStorage.setItem('cart', JSON.stringify(cart));
-  // let [token] = useState(false);
+  // const [cart, setCart] = useState([]);
+  // localStorage.setItem('cart', JSON.stringify(cart));
+  let [token] = useState(false);
+  token = localStorage.getItem("token");
 
-  // token = localStorage.getItem("token");
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   const userID = localStorage.getItem("userID")
-  //     ? localStorage.getItem("userID")
-  //     : "";
-  //   dispatch();
-  // }, [dispatch]);
-  
   return (
     <ChakraProvider theme={customTheme}>
       <Router>
         <div className="top-bar">
           <Navbar />
-
           <ColorModeSwitcher justifySelf="flex-end" className="colorMode-button" />
         </div>
         <Box textAlign="center" fontSize="xl">
@@ -53,14 +39,12 @@ function App() {
                 <Route exact path="/">
                   <Home />
                 </Route>
-                {/* <Route exact path="/dashboard">
-                  {token ? <Dashboard /> : <Redirect to="/signin" />}
-                </Route> */}
-
-                {/* <Route path="/signup" exact>
-                  {token ? <Redirect to="/dashboard" /> : < />}
-                </Route> */}
-
+                <Route exact path="/orders">
+                  {token ? <Orders /> : <Redirect to="/signin" />}
+                </Route>
+                <Route path="/restaurants" exact>
+                  {token ? <Restaurants /> : <Redirect to="/signin" />}
+                </Route>
                 <Route path="/404" exact>
                   <ErrorPage />
                 </Route>
@@ -70,12 +54,6 @@ function App() {
                 <Route path="/signup" exact>
                   <SignUp />
                 </Route>
-                <Route path="/restaurants" exact >
-                  <Restaurants setCart={setCart}/>
-                </Route>
-                <Route path="/orders" exact >
-                  <Orders cart={cart}/>
-                </Route>
                 <Route path="/">
                   <Redirect to="404" />
                 </Route>
@@ -83,7 +61,6 @@ function App() {
             </VStack>
           </Grid>
         </Box>
-        {/* <Footer /> */}
       </Router>
     </ChakraProvider>
   );

@@ -12,7 +12,7 @@ import {
 import { FiShoppingCart } from 'react-icons/fi';
 
 function DishCard({ rName, dName, dPrice, dImgUrl, setCart, _id }) {
-    const cart = [];
+    // const cart = [];
     const toast = useToast()
     const addToCart = () => {
         const dish = {
@@ -21,9 +21,11 @@ function DishCard({ rName, dName, dPrice, dImgUrl, setCart, _id }) {
             dPrice,
             dImgUrl           
         }
+        let cart = JSON.parse(localStorage.getItem('cart'))?JSON.parse(localStorage.getItem('cart')):[];
         console.log('We are in addToCart()');
-        setCart((prevCart) => [...prevCart, dish]);
+        // setCart((prevCart) => [...prevCart, dish]);
         cart.push(dish);
+        localStorage.setItem('cart', JSON.stringify(cart));
         toast({
             title: "Added to Cart",
             description: "You can view your orders",

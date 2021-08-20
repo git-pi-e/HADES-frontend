@@ -5,6 +5,7 @@ import DishCard from 'components/DishCard';
 import axios from 'axios';
 
 const Restaurants = ({ setCart }) => {
+
     const [dishes, setDishes] = useState([]);
     const [loading, setLoading] = useState(true)
     const [isSmallerScreen] = useMediaQuery("(max-width:550px)");

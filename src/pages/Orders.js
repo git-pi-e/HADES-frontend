@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { useState} from 'react';
+import { Text, Box, VStack, Stat, StatLabel, StatNumber, StatHelpText, Button} from "@chakra-ui/react";
 
-import {
-    Text, Box, VStack, Stat,
-    StatLabel,
-    StatNumber,
-    StatHelpText, Button} from "@chakra-ui/react";
-
-
-const Orders = (props) => {
-    // const { cart } = props;
-    let cart = JSON.parse(localStorage.getItem("cart"));
+const Orders = () => {
+    const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : []);
     console.log('Here are all the cart items: ', cart);
-    const removeFromCart = (dish) => { cart.remove(dish); }
-    
+    const removeFromCart = (dish) => {
+        let newCart = cart.filter((e) => {
+            return e !== dish;
+        })
+        localStorage.setItem("cart", JSON.stringify(newCart));
+        setCart(JSON.parse(localStorage.getItem("cart")));
+        console.log('cart after removing: ', cart);
+    }    
     return (
         <Box>
             <Text

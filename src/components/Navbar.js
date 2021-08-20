@@ -55,9 +55,7 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 };
 
 const signOut = () => {
-    localStorage.removeItem("userID");
-    localStorage.removeItem("token");
-    localStorage.removeItem("payload");
+    localStorage.clear();
     window.location.reload();
 };
 

@@ -39,7 +39,7 @@ const ErrorPage = () => {
 						</Text>
 					</Heading>
 					<Text color={"gray.500"}>
-						I think your'e in the wrong part of HELL
+						I think you're in the wrong part of HELL
 					</Text>
 					<Text color={"gray.500"}>
 						If you're looking for the dining section, I think this might interest you: 
@@ -52,24 +52,16 @@ const ErrorPage = () => {
 						position={"relative"}>
 						<Link as={RouterLink} to="/">
 							<Button
-								colorScheme={"green"}
+								colorScheme={"primary"}
 								bg={"primary.400"}
 								rounded={"full"}
 								px={6}
 								_hover={{
-									bg: "green.500",
+									bg: "primary.500",
 								}}>
 								Go get some Hell Soup
 							</Button>
 						</Link>
-						{/* <Link
-							as={RouterLink}
-							to="/about"
-							variant={"link"}
-							colorScheme={"blue"}
-							size={"sm"}>
-							Learn more
-						</Link> */}
 						<Box>
 							<Icon
 								as={Arrow}
