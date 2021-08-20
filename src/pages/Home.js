@@ -5,8 +5,6 @@ import {
     Stack,
     Text,
     Button,
-    Icon,
-    IconProps,
     Link, Image
 } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";

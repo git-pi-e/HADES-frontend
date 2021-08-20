@@ -12,7 +12,7 @@ import {
 import { FiShoppingCart } from 'react-icons/fi';
 
 function DishCard({ rName, dName, dPrice, dImgUrl, setCart, _id }) {
-
+    const cart = [];
     const toast = useToast()
     const addToCart = () => {
         const dish = {
@@ -23,6 +23,7 @@ function DishCard({ rName, dName, dPrice, dImgUrl, setCart, _id }) {
         }
         console.log('We are in addToCart()');
         setCart((prevCart) => [...prevCart, dish]);
+        cart.push(dish);
         toast({
             title: "Added to Cart",
             description: "You can view your orders",
@@ -32,7 +33,7 @@ function DishCard({ rName, dName, dPrice, dImgUrl, setCart, _id }) {
             isClosable: true,
         })
     };
-
+    
     return (
         <WrapItem>
         <Flex p={50} w="full" alignItems="center" justifyContent="center" maxW="400px">

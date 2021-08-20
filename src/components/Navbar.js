@@ -54,12 +54,12 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
     );
 };
 
-// const signOut = () => {
-//     localStorage.removeItem("userID");
-//     localStorage.removeItem("token");
-//     localStorage.removeItem("payload");
-//     window.location.reload();
-// };
+const signOut = () => {
+    localStorage.removeItem("userID");
+    localStorage.removeItem("token");
+    localStorage.removeItem("payload");
+    window.location.reload();
+};
 
 const MenuLinks = ({ isOpen }) => {
     return (
@@ -76,7 +76,7 @@ const MenuLinks = ({ isOpen }) => {
                 <MenuItem to="/restaurants">Restaurants</MenuItem>
                 <MenuItem to="/orders">Orders</MenuItem>
                 <MenuItem to="/signin">
-                    {/* {!localStorage.getItem("userID") && ( */}
+                    {!localStorage.getItem("token") && (
                         <Button
                             size="sm"
                             rounded="md"
@@ -92,7 +92,7 @@ const MenuLinks = ({ isOpen }) => {
                             }}>
                             Sign In
                         </Button>
-                    {/* )} */}
+                    )}
                 </MenuItem>
                 <MenuItem to="/signup">
                     {/* {!localStorage.getItem("userID") && ( */}
@@ -113,8 +113,8 @@ const MenuLinks = ({ isOpen }) => {
                         </Button>
                     {/* )} */}
                 </MenuItem>
-                {/* <MenuItem onClick={() => signOut()} isLast>
-                    {localStorage.getItem("userID") && (
+                <MenuItem onClick={() => signOut()} isLast>
+                    {localStorage.getItem("token") && (
                         <Button
                             size="sm"
                             rounded="md"
@@ -131,7 +131,7 @@ const MenuLinks = ({ isOpen }) => {
                             Sign Out
                         </Button>
                     )}
-                </MenuItem> */}
+                </MenuItem>
                 
             </Stack>
         </Box>

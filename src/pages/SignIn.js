@@ -19,10 +19,11 @@ const SignIn = () => {
         e.preventDefault();
         let user = {email, password };
         axios.post('http://localhost:5000/user/signin', user).then(res => {
-            console.log(res);
-
+            console.log(res); // TODO: remove
+            localStorage.setItem('token', res.data.token);
+            window.location.reload();
         }).catch(err => {
-            console.log('Error submitting signin request', err);
+            console.log('Error submitting SignIn request from backend', err);
         })
     };
     return (
@@ -67,6 +68,7 @@ const SignIn = () => {
                             >
                                 Sign in
                             </Button>
+                            
                         </Stack>
                     </Stack>
                 </Box>

@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+
 import {
     Text, Box, VStack, Stat,
     StatLabel,
@@ -8,11 +8,11 @@ import {
 
 
 const Orders = (props) => {
-    const { cart } = props;
+    // const { cart } = props;
+    let cart = JSON.parse(localStorage.getItem("cart"));
     console.log('Here are all the cart items: ', cart);
     const removeFromCart = (dish) => { cart.remove(dish); }
     
-
     return (
         <Box>
             <Text
@@ -59,6 +59,11 @@ const Orders = (props) => {
                     ))
                 }
             </VStack>
+            {/* {cart.length > 0 &&
+                <Button onClick={() => localStorage.setItem(cart) }>
+                    Order
+                </Button>
+            } */}
         </Box>
     )
 }
