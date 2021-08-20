@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react';
 import { FiShoppingCart } from 'react-icons/fi';
 
-function DishCard({ rName, dName, dPrice, dImageURL, setCart }) {
+function DishCard({ rName, dName, dPrice, dImgUrl, setCart, _id }) {
 
     const toast = useToast()
     const addToCart = () => {
@@ -19,7 +19,7 @@ function DishCard({ rName, dName, dPrice, dImageURL, setCart }) {
             rName,
             dName,
             dPrice,
-            dImageURL           
+            dImgUrl           
         }
         console.log('We are in addToCart()');
         setCart((prevCart) => [...prevCart, dish]);
@@ -33,7 +33,6 @@ function DishCard({ rName, dName, dPrice, dImageURL, setCart }) {
         })
     };
 
-
     return (
         <WrapItem>
         <Flex p={50} w="full" alignItems="center" justifyContent="center" maxW="400px">
@@ -46,7 +45,7 @@ function DishCard({ rName, dName, dPrice, dImageURL, setCart }) {
                 position="relative">
                 
                 <Image
-                    src={dImageURL}
+                    src={dImgUrl}
                     alt={`Picture of ${dName}`}
                     roundedTop="lg"
                 />

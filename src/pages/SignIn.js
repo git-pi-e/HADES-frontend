@@ -4,16 +4,27 @@ import {
     FormControl,
     FormLabel,
     Input,
-    Checkbox,
     Stack,
-    Link,
     Button,
     Heading,
-    Text,
     useColorModeValue,
 } from '@chakra-ui/react';
+import axios from 'axios';
+import { useState } from 'react';
 
-export default function SimpleCard() {
+const SignIn = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const onSubmit = (e) => {
+        e.preventDefault();
+        let user = {email, password };
+        axios.post('http://localhost:5000/user/signin', user).then(res => {
+            console.log(res);
+
+        }).catch(err => {
+            console.log('Error submitting signin request', err);
+        })
+    };
     return (
         <Flex
             minH={'100vh'}
@@ -32,11 +43,11 @@ export default function SimpleCard() {
                     <Stack spacing={4}>
                         <FormControl id="email">
                             <FormLabel>Email address</FormLabel>
-                            <Input type="email" />
+                            <Input type="email" email="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                         </FormControl>
                         <FormControl id="password">
                             <FormLabel>Password</FormLabel>
-                            <Input type="password" />
+                            <Input type="password" password="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                         </FormControl>
                         <Stack spacing={10}>
                             {/* <Stack
@@ -51,7 +62,9 @@ export default function SimpleCard() {
                                 color={'white'}
                                 _hover={{
                                     bg: 'blue.500',
-                                }}>
+                                }}
+                                onClick={(e) => onSubmit(e)}
+                            >
                                 Sign in
                             </Button>
                         </Stack>
@@ -60,4 +73,5 @@ export default function SimpleCard() {
             </Stack>
         </Flex>
     );
-}
+};
+export default SignIn;

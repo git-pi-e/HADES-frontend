@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Box, Flex, Text, Stack } from "@chakra-ui/react";
+import { Link, Box, Flex, Text, Stack, Button } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 
 const NavBar = props => {
@@ -75,8 +75,8 @@ const MenuLinks = ({ isOpen }) => {
                 <MenuItem to="/">Home</MenuItem>
                 <MenuItem to="/restaurants">Restaurants</MenuItem>
                 <MenuItem to="/orders">Orders</MenuItem>
-                {/* <MenuItem to="/signin">
-                    {!localStorage.getItem("userID") && (
+                <MenuItem to="/signin">
+                    {/* {!localStorage.getItem("userID") && ( */}
                         <Button
                             size="sm"
                             rounded="md"
@@ -92,8 +92,27 @@ const MenuLinks = ({ isOpen }) => {
                             }}>
                             Sign In
                         </Button>
-                    )}
-                </MenuItem> */}
+                    {/* )} */}
+                </MenuItem>
+                <MenuItem to="/signup">
+                    {/* {!localStorage.getItem("userID") && ( */}
+                        <Button
+                            size="sm"
+                            rounded="md"
+                            color={["primary.500", "primary.500", "white", "white"]}
+                            bg={["white", "white", "primary.500", "primary.500"]}
+                            _hover={{
+                                bg: [
+                                    "primary.100",
+                                    "primary.100",
+                                    "primary.600",
+                                    "primary.600",
+                                ],
+                            }}>
+                            Sign Up
+                        </Button>
+                    {/* )} */}
+                </MenuItem>
                 {/* <MenuItem onClick={() => signOut()} isLast>
                     {localStorage.getItem("userID") && (
                         <Button
@@ -113,6 +132,7 @@ const MenuLinks = ({ isOpen }) => {
                         </Button>
                     )}
                 </MenuItem> */}
+                
             </Stack>
         </Box>
     );
