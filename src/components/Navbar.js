@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { Link, Box, Flex, Text, Stack, Button } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
+import { Link, Box, Flex, Text, Stack, Button } from "@chakra-ui/react";
 
 const NavBar = props => {
     const [isOpen, setIsOpen] = useState(false);
-
     const toggle = () => setIsOpen(!isOpen);
-
     return (
         <NavBarContainer {...props} className="navbar">
             <MenuToggle toggle={toggle} isOpen={isOpen} />
@@ -93,7 +91,6 @@ const MenuLinks = ({ isOpen }) => {
                     )}
                 </MenuItem>
                 <MenuItem to="/signup">
-                    {/* {!localStorage.getItem("userID") && ( */}
                         <Button
                             size="sm"
                             rounded="md"
@@ -109,7 +106,6 @@ const MenuLinks = ({ isOpen }) => {
                             }}>
                             Sign Up
                         </Button>
-                    {/* )} */}
                 </MenuItem>
                 <MenuItem onClick={() => signOut()} isLast>
                     {localStorage.getItem("token") && (
@@ -129,8 +125,7 @@ const MenuLinks = ({ isOpen }) => {
                             Sign Out
                         </Button>
                     )}
-                </MenuItem>
-                
+                </MenuItem>          
             </Stack>
         </Box>
     );

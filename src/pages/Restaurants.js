@@ -9,8 +9,8 @@ const Restaurants = ({ setCart }) => {
     const [dishes, setDishes] = useState([]);
     const [loading, setLoading] = useState(true)
     const [isSmallerScreen] = useMediaQuery("(max-width:550px)");
-    useEffect( () => {
-        axios.get('http://localhost:5000/dishes/').then((res) => {
+    useEffect(() => {
+        axios.get('https://hades-backend.herokuapp.com/dishes/').then((res) => {
             console.log('pre-setData thingy ', res.data);
             setDishes(res.data);
             setLoading(false);
@@ -22,48 +22,48 @@ const Restaurants = ({ setCart }) => {
     let rest2 = dishes.filter(dish => dish.rName === 'Devil Island');
     let rest3 = dishes.filter(dish => dish.rName === 'Rattlesnake');
     console.log('data state outside useEffect: ', dishes);
-    
+
     return (
         <Box>
             <Text
-				as="h2"
-				fontSize="35px"
-				marginTop="120px"
-				marginBottom="70px"
-			>
-				Jekyll n Hyde
-			</Text>
+                as="h2"
+                fontSize="35px"
+                marginTop="120px"
+                marginBottom="70px"
+            >
+                Jekyll n Hyde
+            </Text>
             <Wrap direction={isSmallerScreen ? "column" : "row"} justify="center">
                 {(!loading) && rest1.map(e => {
-                    return <DishCard rName={ e.rName} dName={e.dName} dImgUrl={e.dImgUrl} dPrice={e.dPrice} key={e._id} setCart={setCart}/>
+                    return <DishCard rName={e.rName} dName={e.dName} dImgUrl={e.dImgUrl} dPrice={e.dPrice} key={e._id} setCart={setCart} />
                 })}
-        </Wrap>
+            </Wrap>
             <Text
-				as="h2"
-				fontSize="35px"
-				marginTop="120px"
-				marginBottom="70px"
-			>
-				Devil Island
-			</Text>
+                as="h2"
+                fontSize="35px"
+                marginTop="120px"
+                marginBottom="70px"
+            >
+                Devil Island
+            </Text>
             <Wrap direction={isSmallerScreen ? "column" : "row"} justify="center">
                 {(!loading) && rest2.map(e => {
                     return <DishCard rName={e.rName} dName={e.dName} dImgUrl={e.dImgUrl} dPrice={e.dPrice} key={e._id} setCart={setCart} />
                 })}
-        </Wrap>
+            </Wrap>
             <Text
-				as="h2"
-				fontSize="35px"
-				marginTop="120px"
-				marginBottom="70px"
-			>
-				Rattlesnake
-			</Text>
+                as="h2"
+                fontSize="35px"
+                marginTop="120px"
+                marginBottom="70px"
+            >
+                Rattlesnake
+            </Text>
             <Wrap direction={isSmallerScreen ? "column" : "row"} justify="center">
                 {(!loading) && rest3.map(e => {
                     return <DishCard rName={e.rName} dName={e.dName} dImgUrl={e.dImgUrl} dPrice={e.dPrice} key={e._id} setCart={setCart} />
                 })}
-        </Wrap>
+            </Wrap>
         </Box>
     )
 }

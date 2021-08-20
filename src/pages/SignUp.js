@@ -1,30 +1,15 @@
-import {
-    Flex,
-    Box,
-    FormControl,
-    FormLabel,
-    Input,
-    Stack,
-    Button,
-    Heading,
-    useColorModeValue,
-} from '@chakra-ui/react';
+import { useState } from 'react';
 import axios from 'axios';
-import { useState} from 'react';
+import { Flex, Box, FormControl, FormLabel, Input, Stack, Button, Heading, useColorModeValue } from '@chakra-ui/react';
 
 const SignUp = () => {
-    // useEffect(() => {
-    //     axios.post('https://localhost:5000/user/signup').then(res => {
-    //         console.log(res);
-    //     });
-    // }, []);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const onSubmit = (e) => {
         e.preventDefault();
         let user = { name, email, password };
-        axios.post('http://localhost:5000/user/signup', user).then(res => {
+        axios.post('https://hades-backend.herokuapp.com/user/signup', user).then(res => {
             console.log(res);
 
         }).catch(err => {
@@ -49,15 +34,15 @@ const SignUp = () => {
                     <Stack spacing={4}>
                         <FormControl id="name">
                             <FormLabel >Name</FormLabel>
-                            <Input type="text" name="name" value={name} onChange = {(e) => setName(e.target.value)}/>
+                            <Input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
                         </FormControl>
                         <FormControl id="email">
                             <FormLabel>Email address</FormLabel>
-                            <Input type="email" email="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                            <Input type="email" email="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         </FormControl>
                         <FormControl id="password">
                             <FormLabel>Password</FormLabel>
-                            <Input type="password" password="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                            <Input type="password" password="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </FormControl>
                         <Stack spacing={10}>
                             {/* <Stack

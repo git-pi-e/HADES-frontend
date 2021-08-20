@@ -1,16 +1,12 @@
 import { useState } from "react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import { ChakraProvider, Box, VStack, Grid } from "@chakra-ui/react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import customTheme from "utils/customTheme";
 
 import Navbar from "components/Navbar";
+
 import Home from "pages/Home";
 import ErrorPage from "pages/ErrorPage";
 import SignIn from "pages/SignIn";
@@ -20,8 +16,6 @@ import Orders from "pages/Orders";
 
 
 function App() {
-  // const [cart, setCart] = useState([]);
-  // localStorage.setItem('cart', JSON.stringify(cart));
   let [token] = useState(false);
   token = localStorage.getItem("token");
 

@@ -1,12 +1,4 @@
-import {
-    Flex,
-    Container,
-    Heading,
-    Stack,
-    Text,
-    Button,
-    Link, Image
-} from "@chakra-ui/react";
+import { Flex, Container, Heading, Stack, Text, Button, Link, Image } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 
 const Home = () => {
@@ -26,7 +18,7 @@ const Home = () => {
                         Hellstaurants
                     </Text>
                 </Heading>
-                
+
                 <Stack spacing={6} direction={"row"}>
                     <Link as={RouterLink} to="/signin" className="router-link">
                         <Button
@@ -40,9 +32,7 @@ const Home = () => {
                     </Link>
                 </Stack>
                 <Flex w={"full"} justify="center">
-                    
                     <Image src="https://i.imgur.com/odMPbh1.png" alt="HADES" />
-                    
                 </Flex>
             </Stack>
         </Container>

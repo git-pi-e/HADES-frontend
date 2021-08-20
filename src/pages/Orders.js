@@ -1,5 +1,5 @@
-import React, { useState} from 'react';
-import { Text, Box, VStack, Stat, StatLabel, StatNumber, StatHelpText, Button} from "@chakra-ui/react";
+import React, { useState } from 'react';
+import { Text, Box, VStack, Stat, StatLabel, StatNumber, StatHelpText, Button } from "@chakra-ui/react";
 
 const Orders = () => {
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')) : []);
@@ -11,7 +11,7 @@ const Orders = () => {
         localStorage.setItem("cart", JSON.stringify(newCart));
         setCart(JSON.parse(localStorage.getItem("cart")));
         console.log('cart after removing: ', cart);
-    }    
+    }
     return (
         <Box>
             <Text
@@ -35,8 +35,8 @@ const Orders = () => {
                     cart.map((dish) => (
                         <Stat borderWidth="1px" px="20px" py="10px">
                             <StatLabel fontSize="23px">{dish.dName}</StatLabel>
-                            <StatNumber fontSize="25px">₹{ dish.dPrice}</StatNumber>
-                            <StatHelpText fontSize="20px">{ dish.rName}</StatHelpText>
+                            <StatNumber fontSize="25px">₹{dish.dPrice}</StatNumber>
+                            <StatHelpText fontSize="20px">{dish.rName}</StatHelpText>
                             <Button
                                 size="sm"
                                 rounded="md"
@@ -58,11 +58,6 @@ const Orders = () => {
                     ))
                 }
             </VStack>
-            {/* {cart.length > 0 &&
-                <Button onClick={() => localStorage.setItem(cart) }>
-                    Order
-                </Button>
-            } */}
         </Box>
     )
 }

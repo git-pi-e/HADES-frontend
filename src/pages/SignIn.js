@@ -18,12 +18,12 @@ const SignIn = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         let user = {email, password };
-        axios.post('http://localhost:5000/user/signin', user).then(res => {
-            console.log(res); // TODO: remove
+        axios.post('https://hades-backend.herokuapp.com/user/signin', user).then(res => {
+            // console.log(res);
             localStorage.setItem('token', res.data.token);
             window.location.reload();
         }).catch(err => {
-            console.log('Error submitting SignIn request from backend', err);
+            console.log('Error submitting SignIn request from frontend', err);
         })
     };
     return (
@@ -51,13 +51,6 @@ const SignIn = () => {
                             <Input type="password" password="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                         </FormControl>
                         <Stack spacing={10}>
-                            {/* <Stack
-                                direction={{ base: 'column', sm: 'row' }}
-                                align={'start'}
-                                justify={'space-between'}>
-                                <Checkbox>Remember me</Checkbox>
-                                <Link color={'blue.400'}>Forgot password?</Link>
-                            </Stack> */}
                             <Button
                                 bg={'blue.400'}
                                 color={'white'}

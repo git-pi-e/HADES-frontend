@@ -1,26 +1,14 @@
 import React from "react";
-import {
-	Box,
-	Heading,
-	Container,
-	Text,
-	Button,
-	Stack,
-	Icon,
-	useColorModeValue,
-	createIcon,
-	Link,
-} from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
+import { Box, Heading, Container, Text, Button, Stack, Icon, useColorModeValue, createIcon, Link } from "@chakra-ui/react";
 
 const ErrorPage = () => {
 	return (
 		<>
 			<header>
 				<link
-					href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap"
-					rel="stylesheet"
-				/>
+					href="https://fonts.googleapis.com/css2?family=Allison&display=swap"
+					rel="stylesheet" />
 			</header>
 
 			<Container maxW={"3xl"}>
@@ -42,7 +30,7 @@ const ErrorPage = () => {
 						I think you're in the wrong part of HELL
 					</Text>
 					<Text color={"gray.500"}>
-						If you're looking for the dining section, I think this might interest you: 
+						If you're looking for the dining section, I think this might interest you:
 					</Text>
 					<Stack
 						direction={"column"}
@@ -73,14 +61,14 @@ const ErrorPage = () => {
 							/>
 							<Text
 								fontSize={"lg"}
-								fontFamily={"Caveat"}
+								fontFamily={"Allison"}
 								position={"absolute"}
 								right={"-125px"}
 								top={"-15px"}
 								transform={"rotate(10deg)"}>
 								Tis quite delicious
 							</Text>
-							
+
 						</Box>
 					</Stack>
 				</Stack>
