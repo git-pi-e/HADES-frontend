@@ -9,7 +9,7 @@ Find the application [here](https://hellstaurants.vercel.app/)
  
 ## Things I learnt
 - Learnt more about using React, React hooks, JSX, React-router, protected routing and CSS
-- Using Postmanto test APIs 
+- Using Postmanto test APIs and using axios to fetch data from backend.
 - Using Express, writing middleware, routes
 - Using MongoDB, mongoose, creating schemas and error handling
 - Using auth with JWTs and bcrypt
