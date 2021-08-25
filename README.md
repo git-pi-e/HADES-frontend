@@ -13,7 +13,7 @@ Find the application [here](https://hellstaurants.vercel.app/)
 - Using Express, writing middleware, routes
 - Using MongoDB, mongoose, creating schemas and error handling
 - Using auth with JWTs and bcrypt
-- Using localStorage
+- Using localStorage with react states.
  
 This was my first time working on a full MERN stack application by myself.
 
