@@ -1,1 +1,1 @@
-# HADES HEllstaurants
+# HADES Hellstaurants
