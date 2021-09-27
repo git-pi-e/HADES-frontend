@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Flex, Box, FormControl, FormLabel, Input, Stack, Button, Heading, useColorModeValue } from '@chakra-ui/react';
+import { Flex, Box, FormControl, FormLabel, Input, Stack, Button, Heading, useColorModeValue, useToast } from '@chakra-ui/react';
 
 const SignUp = () => {
+    const toast = useToast();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -11,7 +12,14 @@ const SignUp = () => {
         let user = { name, email, password };
         axios.post('https://hades-backend.herokuapp.com/user/signup', user).then(res => {
             console.log(res);
-
+            toast({
+                title: "Sign up ",
+                description: "Go to sign in tab to log in",
+                variant: "left-accent",
+                status: "success",
+                duration: 2000,
+                isClosable: true,
+            })
         }).catch(err => {
             console.log('Error submitting signup request', err);
         })
